@@ -4,7 +4,7 @@ import Layout from '@/pages/layout/layout'
 
 Vue.use(Router)
 
-//解决重复点击菜单栏报错问题
+//重写路由push方法,解决重复点击菜单栏报错问题
 //获取原型对象上的push函数
 const originalPush = Router.prototype.push
     //修改原型对象中的push方法
