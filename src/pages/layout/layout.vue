@@ -5,9 +5,9 @@
         <Header />
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <!-- <el-aside width="200px">
           <Aside />
-        </el-aside>
+        </el-aside> -->
         <el-main>
           <Main />
         </el-main>
@@ -17,19 +17,22 @@
 </template>
 
 <script>
-import Main from './components/main'
-import Aside from './components/aside'
-import Header from './components/header'
+import Main from "./components/main";
+// import Aside from "./components/aside";
+import Header from "./components/header";
 
 export default {
-  name: 'Layout',
-  components: { Main, Aside, Header },
-  data() {
-    return {}
+  name: "Layout",
+  components: {
+    Main,
+    //  Aside,
+    Header
   },
-}
+  data() {
+    return {};
+  }
+};
 </script>
-
 
 <style>
 .el-header,
@@ -66,5 +69,9 @@ body > .el-container {
 
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
+}
+
+.el-header {
+  padding: 0;
 }
 </style>
