@@ -2,12 +2,14 @@
   <div>
     <h1>首页</h1>
     <el-button @click="test">点击出现小猫</el-button>
-    <img :src="img" alt="" class="image" />
+    <div>
+      <img :src="img" alt="" class="image" />
+    </div>
   </div>
 </template>
 <script>
 import * as _ from 'lodash'
-import { getTest } from '@/api/api'
+// import { getTest } from '@/api/api'
 
 export default {
   data() {
@@ -25,26 +27,25 @@ export default {
       this.$store.commit('app/setmessage', 1)
       this.getTest()
     },
-    getTest() {
-      getTest({
-        limit: '1',
-      }).then(res => {
-        this.img = res[0].url
-      })
-    },
-    // async getTest() {
-    //   const res = await this.$http('app/getTest', { limit: '1' })
-
-    //   console.log('res', res)
-
-    //   this.img = res[0].url
+    // getTest() {
+    //   getTest({
+    //     limit: '1',
+    //   }).then(res => {
+    //     this.img = res[0].url
+    //   })
     // },
+    async getTest() {
+      const res = await this.$http('app/getTest', { limit: '1' })
+
+      console.log('res', res)
+
+      this.img = res[0].url
+    },
   },
 }
 </script>
 <style lang="less" scoped>
 .image {
-  display: inline-block;
   width: 1200px;
 }
 </style>
