@@ -28,8 +28,15 @@ export default {
       activeIndex: '1',
     }
   },
+  created() {
+    if (sessionStorage.getItem('currentIndex')) {
+      this.activeIndex = sessionStorage.getItem('currentIndex')
+    }
+  },
   methods: {
     handleSelect(key, keyPath) {
+      console.log(key)
+      sessionStorage.setItem('currentIndex', key)
       switch (key) {
         case '1':
           this.$router.push('/home')
