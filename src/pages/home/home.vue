@@ -10,17 +10,20 @@
 <script>
 import * as _ from 'lodash'
 // import { getTest } from '@/api/api'
+import { Count } from '@/utils/count'
 
 export default {
   data() {
     return {
-      arr: [1, 2, 3, 4, 5],
+      arr: [1, 2, 3, 3, 3, 4, 5],
       img: '',
     }
   },
   mounted() {
     let a = _.indexOf(this.arr, 3)
-    console.log(999, a)
+    // console.log(999, a)
+
+    console.log('111', Count(this.arr))
   },
   methods: {
     test() {
