@@ -17,21 +17,21 @@
 </template>
 
 <script>
-import Main from "./components/main";
+import Main from './components/main'
 // import Aside from "./components/aside";
-import Header from "./components/header";
+import Header from './components/header'
 
 export default {
-  name: "Layout",
+  name: 'Layout',
   components: {
     Main,
     //  Aside,
-    Header
+    Header,
   },
   data() {
-    return {};
-  }
-};
+    return {}
+  },
+}
 </script>
 
 <style>

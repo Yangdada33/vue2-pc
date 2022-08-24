@@ -1,22 +1,17 @@
 <template>
   <div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-menu-item index="2">我的工作台</el-menu-item>
-      <!-- <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
+      <template v-for="item in list">
+        <el-menu-item v-if="!item.children" :key="item.index" :index="item.index">
+          <router-link :to="item.path">{{ item.name }}</router-link>
+        </el-menu-item>
+        <el-submenu v-else :key="item.index" :index="item.index">
+          <template slot="title">{{ item.name }}</template>
+          <el-menu-item :index="item.index" v-for="(item, index) in item.children" :key="index">
+            <router-link :to="item.path">{{ item.name }}</router-link>
+          </el-menu-item>
         </el-submenu>
-      </el-submenu> -->
-      <el-menu-item index="3">消息中心</el-menu-item>
-      <el-menu-item index="4">订单管理</el-menu-item>
+      </template>
     </el-menu>
   </div>
 </template>
@@ -26,6 +21,49 @@ export default {
   data() {
     return {
       activeIndex: '1',
+      list: [
+        {
+          index: '1',
+          name: '首页',
+          path: '/home',
+        },
+        {
+          index: '2',
+          name: '工作台',
+          path: '/workbench',
+        },
+        {
+          index: '3',
+          name: '消息中心',
+          path: '/message',
+        },
+        {
+          index: '4',
+          name: '订单管理',
+          path: '/order',
+        },
+        {
+          index: '5',
+          name: '功能',
+          children: [
+            {
+              index: '5-1',
+              name: '功能1',
+              path: '/test1',
+            },
+            {
+              index: '5-2',
+              name: '功能2',
+              path: '/test2',
+            },
+            {
+              index: '5-3',
+              name: '功能3',
+              path: '/test3',
+            },
+          ],
+        },
+      ],
     }
   },
   created() {
@@ -34,26 +72,8 @@ export default {
     }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key)
+    handleSelect(key) {
       sessionStorage.setItem('currentIndex', key)
-      switch (key) {
-        case '1':
-          this.$router.push('/home')
-          break
-        case '2':
-          this.$router.push('/workbench')
-          break
-        case '3':
-          this.$router.push('/message')
-          break
-        case '4':
-          this.$router.push('/order')
-          break
-
-        default:
-          break
-      }
     },
   },
 }

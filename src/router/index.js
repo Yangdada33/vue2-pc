@@ -50,9 +50,27 @@ const router = new Router({
                     name: 'Order',
                     component: () =>
                         import ('@/pages/order/order.vue')
+                },
+                {
+                    path: '/test1',
+                    name: 'Test1',
+                    component: () =>
+                        import ('@/pages/test1/index.vue')
+                },
+                {
+                    path: '/test2',
+                    name: 'Test2',
+                    component: () =>
+                        import ('@/pages/test2/index.vue')
+                },
+                {
+                    path: '/test3',
+                    name: 'Test3',
+                    component: () =>
+                        import ('@/pages/test3/index.vue')
                 }
             ]
-        },
+        }
 
     ]
 })
