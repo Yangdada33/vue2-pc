@@ -48,6 +48,9 @@ const router = new Router({
                 {
                     path: '/order',
                     name: 'Order',
+                    // beforeEnter: ((to, from, next) => { // 路由独享守卫
+                    //     next()
+                    // }),
                     component: () =>
                         import ('@/pages/order/order.vue')
                 },
@@ -75,5 +78,9 @@ const router = new Router({
     ]
 })
 
+//全局前置守卫
+// router.beforeEach((to, from, next) => {
+//     next()
+// })
 
 export default router
