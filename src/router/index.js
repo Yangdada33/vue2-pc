@@ -61,7 +61,7 @@ const router = new Router({
                         import ('@/pages/test1/index.vue')
                 },
                 {
-                    path: '/test2',
+                    path: '/test2/:id',
                     name: 'Test2',
                     component: () =>
                         import ('@/pages/test2/index.vue')

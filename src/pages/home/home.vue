@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       arr: [1, 2, 3, 3, 3, 4, 5],
+      arr1: [1, 2, 3, 4, 5],
       img: '',
     }
   },
@@ -24,11 +25,35 @@ export default {
     // console.log(999, a)
 
     console.log('111', Count(this.arr))
+
+    let b = this.arr1.slice(1, 2)
+    console.log('b', b)
   },
   methods: {
     test() {
       this.$store.commit('app/setmessage', 1)
       this.getTest()
+      //路由传参1
+      // this.$router.push({
+      //   name: 'Test1',
+      //   params: {
+      //     name: 'hellow',
+      //   },
+      // })
+
+      //2
+      // this.$router.push({
+      //   name: 'Test1',
+      //   query: {
+      //     name: 'hellow',
+      //   },
+      // })
+
+      // 3
+      let id = '66666'
+      this.$router.push({
+        path: `/test2/${id}`,
+      })
     },
     // getTest() {
     //   getTest({

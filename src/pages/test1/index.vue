@@ -10,6 +10,8 @@ export default {
   },
   mounted() {
     console.log('vuex', this.msg)
+    // console.log(this.$route.params.name)
+    console.log(this.$route.query.name)
   },
 }
 </script>
