@@ -11,16 +11,6 @@
         </span>
       </label>
     </div>
-
-    <!-- <div class="address-list-item">
-      <label class="radio" for="diyi" :class="label">
-        <input type="radio" name="address" value="1" id="diyi" style="float:left" />
-        <i></i>
-        <div>
-          <div class="address-detail">北京市海淀区楼北京市海淀区楼</div>
-        </div>
-      </label>
-    </div> -->
   </div>
 </template>
 
