@@ -5,14 +5,22 @@
     <div>
       <img :src="img" alt="" class="image" />
     </div>
+    <div>简单使用插槽</div>
+    <Button btnStyle="btn-success">
+      <slot></slot>
+    </Button>
   </div>
 </template>
 <script>
 import * as _ from 'lodash'
 // import { getTest } from '@/api/api'
 import { Count } from '@/utils/count'
+import Button from '../button/index.vue'
 
 export default {
+  components: {
+    Button,
+  },
   data() {
     return {
       arr: [1, 2, 3, 3, 3, 4, 5],
